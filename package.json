@@ -1,0 +1,38 @@
+{
+  "name": "expandable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://justingeeslin@github.com/justingeeslin/expandable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justingeeslin/expandable/issues"
+  },
+  "homepage": "https://github.com/justingeeslin/expandable#readme",
+  "dependencies": {
+    "browserify": "^14.5.0",
+    "browserify-istanbul": "^2.0.0",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.99.0",
+    "jasmine-core": "^2.99.1",
+    "jasmine-node": "^1.15.0",
+    "karma": "^1.7.1",
+    "karma-browserify": "^5.3.0",
+    "karma-coverage": "^1.1.2",
+    "karma-htmlfile-reporter": "^0.3.8",
+    "karma-jasmine": "^1.1.2",
+    "karma-safari-launcher": "^1.0.0",
+    "watchify": "^3.11.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "component": "git+https://github.com/justingeeslin/component.git"
+  }
+}
