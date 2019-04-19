@@ -1,0 +1,1 @@
+details.manual[open]>:not(summary){display:inherit}details.manual>:not(summary){display:none}
