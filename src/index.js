@@ -1,4 +1,4 @@
-var Component = require('component/src/index.js');
+var Component = require('component');
 
 var ExpandCollapse = function (opts) {
 	var self = this;
