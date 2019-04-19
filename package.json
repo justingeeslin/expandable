@@ -35,5 +35,8 @@
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",
     "component": "git+https://github.com/justingeeslin/component.git"
+  },
+  "devDependencies": {
+    "laravel-mix": "^4.0.15"
   }
 }
