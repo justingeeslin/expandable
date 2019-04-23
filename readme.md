@@ -1,6 +1,6 @@
 # Expandable
 
-A small JavaScript module that shims the <details> element for unsupported browsers including latest version of Edge.
+A small JavaScript module that shims the `<details>` element for unsupported browsers including latest version of Edge.
 
 Cross-browser Testing provided by:
 <a href="https://browserstack.com">
