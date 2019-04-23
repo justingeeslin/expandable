@@ -19,10 +19,21 @@ describe('ExpandCollapse', function() {
       return theBody.is(':visible')
     }
 
+    var el = $('<div><summary>Shim Untitled Title</summary><p>Untitled Body</p></div>');
+    $(document.body).append(el);
+    theShimedExpandable = new ExpandCollapse({
+      forceShim: true,
+      el: el
+    });
+
     setTimeout(function() {
       // Wait a bit before performing tests on all the constructed elements.
       done()
     }, 100)
+  });
+
+  it('should hide content intially', function() {
+    expect(theExpandable.isOpen()).toBe(false);
   });
 
 		// Attempting to test toggling on click. Might there be other gestures you need to test other than click?
@@ -60,6 +71,35 @@ describe('ExpandCollapse', function() {
 			expect(theExpandable.isOpen()).toBe(false, 'Removed attribute but it was still open');
 
 		});
+
+    it('should hide content intially (using shim)', function(done) {
+
+      // Wait a beat for construction
+      window.setTimeout(function() {
+        expect(theShimedExpandable.isOpen()).toBe(false);
+        done();
+      }, 10)
+    })
+
+    it('should show content on click (using shim)', function(done) {
+      theShimedExpandable.el.find('summary').trigger('click')
+
+      // Wait a beat for construction
+      window.setTimeout(function() {
+        expect(theShimedExpandable.isOpen()).toBe(true);
+        done();
+      }, 10)
+    })
+
+    it('should show content on click (using shim)', function(done) {
+      theShimedExpandable.el.find('summary').trigger('click')
+
+      // Wait a beat for construction
+      window.setTimeout(function() {
+        expect(theShimedExpandable.isOpen()).toBe(false);
+        done();
+      }, 10)
+    })
 
 		// Does this case matter?
     xit('should hide content with open attribute set to false', function() {
