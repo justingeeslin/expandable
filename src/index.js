@@ -22,9 +22,6 @@ var ExpandCollapse = function (opts) {
 		var body = title.siblings()
 		var bodyText = body.html();
 		if (bodyText.length > 0) {
-	else {
-		console.log('Could not find summary element.')
-	}
 			this.content = bodyText;
 		}
 	}
