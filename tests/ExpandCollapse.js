@@ -1,9 +1,16 @@
+const ExpandCollapse = require('../src/index.js');
+
 describe('ExpandCollapse', function() {
 
   beforeAll(function(done) {
     // Add expand collapse element
-    el = $('<details><summary>Untitled Title</summary><p>Untitled Body</p></details>');
+    var el = $('<details><summary>Untitled Title</summary><p>Untitled Body</p></details>');
     $(document.body).append(el)
+
+    console.log('Constructing the Expandable..');
+    theExpandable = new ExpandCollapse({
+      el: el
+    });
 
 		theTitle = el.find('summary');
     theBody = theTitle.siblings();
@@ -18,46 +25,39 @@ describe('ExpandCollapse', function() {
     }, 100)
   });
 
-		beforeEach(function() {
-			// Begin each test with an open Collapsible
-			 console.log('Adding open attribute..')
-			 el[0].setAttribute('open', '')
-		 })
-
 		// Attempting to test toggling on click. Might there be other gestures you need to test other than click?
-		xit('should show content on click and hide on the second click.', function(done) {
-      var isOpenIntially = isOpen()
-      // Click once
+		it('should show content on click', function(done) {
+      // Click
       theTitle.trigger('click');
-      window.setTimeout(function() {
-        expect(isOpen()).toBe(!isOpenIntially, ' Clicked once and didn\'t change.');
-        if (isOpen()) {
-          expect(el.attr('open')).not.toBe(undefined);
-        }
 
-        // // click twice
-        // theTitle.trigger('click');
-        // window.setTimeout(function() {
-        //   expect(isOpen()).toBe(isOpenIntially);
-        //   if (isOpen()) {
-        //     expect(el.attr('open')).not.toBe(undefined);
-        //   }
-          done()
-        // }, 10)
+      window.setTimeout(function() {
+        expect(theExpandable.isOpen()).toBe(true);
+        done();
+      }, 10)
+
+		});
+
+    it('should hide content on second click', function(done) {
+      // Click
+      theTitle.trigger('click');
+
+      window.setTimeout(function() {
+        expect(theExpandable.isOpen()).toBe(false);
+        done();
       }, 10)
 
 		});
 
     it('should show content on open attribute', function() {
-      expect(isOpen()).toBe(true);
+      theExpandable.el[0].setAttribute('open', 'open')
+      expect(theExpandable.isOpen()).toBe(true);
 		});
 
     // Fails in IE10 because removing attributes doesn't trigger the ATTR modified event as it should https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-mutationevents
     it('should hide content without open attribute', function() {
       console.log('Removing open attribute..')
-      el[0].removeAttribute('open');
-			expect(isOpen()).toBe(false, 'Removed attribute but it was still open');
-
+      theExpandable.el[0].removeAttribute('open');
+			expect(theExpandable.isOpen()).toBe(false, 'Removed attribute but it was still open');
 
 		});
 
