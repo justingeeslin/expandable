@@ -3,7 +3,10 @@ var Component = require('component');
 var ExpandCollapse = function (opts) {
 	var self = this;
 
-	var defaults = {};
+	var defaults = {
+		// Do not rely on detection of details support. Use the shim regardless of what we can detect.
+		forceShim: false
+	};
 
 	$.extend(this, defaults, opts);
 	$.extend(this, new Component(this));
@@ -19,11 +22,11 @@ var ExpandCollapse = function (opts) {
 		var body = title.siblings()
 		var bodyText = body.html();
 		if (bodyText.length > 0) {
-			this.content = bodyText;
-		}
-	}
 	else {
 		console.log('Could not find summary element.')
+	}
+			this.content = bodyText;
+		}
 	}
 
 
@@ -37,10 +40,10 @@ var ExpandCollapse = function (opts) {
 	}
 
 	// Only if details element is not supported are these handlers necessary.
-	if (!supportsDetails()) {
+	if (!supportsDetails() || this.forceShim) {
 
 		// Employ CSS rules for hiding and showing.
-		this.el.addClass('manual');
+		this.el.addClass('manual-details');
 
 		//Handles expanding and collapsing
 		var toggle = function(e) {
