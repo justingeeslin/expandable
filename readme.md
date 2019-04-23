@@ -5,5 +5,5 @@ A small JavaScript module that shims the `<details>` element for unsupported bro
 Cross-browser Testing provided by:
 <br>
 <a href="https://browserstack.com">
-![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
+![BrowserStack Logo](https://github.com/justingeeslin/expandable/blob/develop/docs/Browserstack-logo@2x.png?raw=true)
 </a>
