@@ -122,7 +122,7 @@ module.exports = function(config) {
     browsers: [
       'edge',
       'IE11',
-      'Safari',
+      // 'Safari',
       'Chrome',
       'firefox_win'
     ],
