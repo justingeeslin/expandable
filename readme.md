@@ -1,6 +1,6 @@
 # Expandable
 
-[![CircleCI](https://circleci.com/gh/justingeeslin/expandable.svg?style=svg)](https://circleci.com/gh/justingeeslin/expandable)
+[![CircleCI](https://circleci.com/gh/justingeeslin/expandable.svg?style=svg)](https://circleci.com/gh/justingeeslin/expandable) [![Greenkeeper badge](https://badges.greenkeeper.io/justingeeslin/expandable.svg)](https://greenkeeper.io/)
 
 A small JavaScript module that shims the `<details>` element for [unsupported browsers](https://caniuse.com/#search=details) including latest version of Edge.
 
