@@ -10,3 +10,12 @@ Cross-browser Testing provided by:
 ![BrowserStack Logo](https://github.com/justingeeslin/expandable/blob/develop/docs/Browserstack-logo@2x.png?raw=true)
 </a>
 
+## Usage
+1. Call the constructor on all the details elements.
+2. There is no step 2.
+
+```js
+
+```
+
+You can call the constructor at document ready and/or use a MutationObserver to call the constructor upon Node insertion.
