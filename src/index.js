@@ -20,10 +20,13 @@ var ExpandCollapse = function (opts) {
 		}
 
 		var body = title.siblings()
-		var bodyText = body.html();
-		if (bodyText.length > 0) {
-			this.content = bodyText;
+		if (body.length > 0) {
+			var bodyText = body.html();
+			if (bodyText.length > 0) {
+				this.content = bodyText;
+			}
 		}
+
 	}
 
 
