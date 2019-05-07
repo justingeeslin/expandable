@@ -36,10 +36,14 @@ jobs:
       - run:
           name: Running Tests
           command: node_modules/karma/bin/karma start karma.conf.js --single-run
-          
+
       # test summary
       - store_test_results:
           path: results
+
+      - store_artifacts:
+          path: /tests/index.html
+
 
       # generate coverage
       # - run:
