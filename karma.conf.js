@@ -48,8 +48,8 @@ module.exports = function(config) {
     reporters: [
       'progress',
       'coverage',
-      'junit'
-      // 'html'
+      'junit',
+      'html'
     ],
 
     coverageReporter : {
@@ -78,7 +78,7 @@ module.exports = function(config) {
       outputFile: 'tests/index.html',
 
       // Optional
-      pageTitle: 'Sensible Unit Tests',
+      pageTitle: 'Unit Tests',
       // subPageTitle: '',
       groupSuites: true,
       useCompactStyle: true
