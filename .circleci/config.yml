@@ -36,6 +36,11 @@ jobs:
       - run:
           name: Running Tests
           command: node_modules/karma/bin/karma start karma.conf.js --single-run
+          
+      # test summary
+      - store_test_results:
+          path: results
+
       # generate coverage
       # - run:
       #     name: Sending Coverage
