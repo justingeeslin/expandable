@@ -44,8 +44,7 @@ jobs:
       - store_artifacts:
           path: /tests/index.html
 
-
-      # generate coverage
-      # - run:
-      #     name: Sending Coverage
-      #     command: cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
+      generate coverage
+      - run:
+          name: Sending Coverage
+          command: cat coverage/lcov.info | node_modules/.bin/codacy-coverage
