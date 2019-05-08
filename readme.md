@@ -1,6 +1,8 @@
 # Expandable
 
 [![CircleCI](https://circleci.com/gh/justingeeslin/expandable.svg?style=svg)](https://circleci.com/gh/justingeeslin/expandable)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/915861fe79bd4672821cb1cd5e15f078)](https://www.codacy.com/app/justingeeslin/expandable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=justingeeslin/expandable&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/915861fe79bd4672821cb1cd5e15f078)](https://www.codacy.com/app/justingeeslin/expandable?utm_source=github.com&utm_medium=referral&utm_content=justingeeslin/expandable&utm_campaign=Badge_Coverage)
 
 A small JavaScript module that shims the `<details>` element for [unsupported browsers](https://caniuse.com/#search=details) including latest version of Edge.
 
