@@ -110,4 +110,17 @@ describe('ExpandCollapse', function() {
 
 	});
 
+  it('should dispatch toggle event opened', function(done) {
+    var didDispatchEvent = false;
+
+    theShimedExpandable.el.on('toggle', function() {
+      console.log('Heard toggle event.')
+      didDispatchEvent = true;
+      expect(didDispatchEvent).toBe(true);
+      done();
+    });
+
+    theShimedExpandable.el.find('summary').trigger('click');
+  })
+
 });
