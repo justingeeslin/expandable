@@ -64,6 +64,8 @@ var ExpandCollapse = function (opts) {
 				console.log('Removing open attr manually..')
 				self.el[0].removeAttribute('open');
 			}
+			console.log('Dispatching toggle event..');
+			self.el.trigger('toggle');
 
 		}
 
