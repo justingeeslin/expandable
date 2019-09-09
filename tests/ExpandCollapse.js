@@ -36,78 +36,91 @@ describe('ExpandCollapse', function() {
     expect(theExpandable.isOpen()).toBe(false);
   });
 
-		// Attempting to test toggling on click. Might there be other gestures you need to test other than click?
-		it('should show content on click', function(done) {
-      // Click
-      theTitle.trigger('click');
+	// Attempting to test toggling on click. Might there be other gestures you need to test other than click?
+	it('should show content on click', function(done) {
+    // Click
+    theTitle.trigger('click');
 
-      window.setTimeout(function() {
-        expect(theExpandable.isOpen()).toBe(true);
-        done();
-      }, 10)
-
-		});
-
-    it('should hide content on second click', function(done) {
-      // Click
-      theTitle.trigger('click');
-
-      window.setTimeout(function() {
-        expect(theExpandable.isOpen()).toBe(false);
-        done();
-      }, 10)
-
-		});
-
-    it('should show content on open attribute', function() {
-      theExpandable.el[0].setAttribute('open', 'open')
+    window.setTimeout(function() {
       expect(theExpandable.isOpen()).toBe(true);
-		});
+      done();
+    }, 10)
 
-    // Fails in IE10 because removing attributes doesn't trigger the ATTR modified event as it should https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-mutationevents
-    it('should hide content without open attribute', function() {
-      console.log('Removing open attribute..')
-      theExpandable.el[0].removeAttribute('open');
-			expect(theExpandable.isOpen()).toBe(false, 'Removed attribute but it was still open');
+	});
 
-		});
+  it('should hide content on second click', function(done) {
+    // Click
+    theTitle.trigger('click');
 
-    it('should hide content intially (using shim)', function(done) {
+    window.setTimeout(function() {
+      expect(theExpandable.isOpen()).toBe(false);
+      done();
+    }, 10)
 
-      // Wait a beat for construction
-      window.setTimeout(function() {
-        expect(theShimedExpandable.isOpen()).toBe(false);
-        done();
-      }, 10)
-    })
+	});
 
-    it('should show content on click (using shim)', function(done) {
-      theShimedExpandable.el.find('summary').trigger('click')
+  it('should show content on open attribute', function() {
+    theExpandable.el[0].setAttribute('open', 'open')
+    expect(theExpandable.isOpen()).toBe(true);
+	});
 
-      // Wait a beat for construction
-      window.setTimeout(function() {
-        expect(theShimedExpandable.isOpen()).toBe(true);
-        done();
-      }, 10)
-    })
+  // Fails in IE10 because removing attributes doesn't trigger the ATTR modified event as it should https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-mutationevents
+  it('should hide content without open attribute', function() {
+    console.log('Removing open attribute..')
+    theExpandable.el[0].removeAttribute('open');
+		expect(theExpandable.isOpen()).toBe(false, 'Removed attribute but it was still open');
 
-    it('should show content on click (using shim)', function(done) {
-      theShimedExpandable.el.find('summary').trigger('click')
+	});
 
-      // Wait a beat for construction
-      window.setTimeout(function() {
-        expect(theShimedExpandable.isOpen()).toBe(false);
-        done();
-      }, 10)
-    })
+  it('should hide content intially (using shim)', function(done) {
 
-		// Does this case matter?
-    xit('should hide content with open attribute set to false', function() {
-      console.log('Setting open attribute to false..')
-      el[0].setAttribute('open', false)
-			expect(isOpen()).toBe(false, 'Setting open attribute to false but it was still open');
+    // Wait a beat for construction
+    window.setTimeout(function() {
+      expect(theShimedExpandable.isOpen()).toBe(false);
+      done();
+    }, 10)
+  })
+
+  it('should show content on click (using shim)', function(done) {
+    theShimedExpandable.el.find('summary').trigger('click')
+
+    // Wait a beat for construction
+    window.setTimeout(function() {
+      expect(theShimedExpandable.isOpen()).toBe(true);
+      done();
+    }, 10)
+  })
+
+  it('should show content on click (using shim)', function(done) {
+    theShimedExpandable.el.find('summary').trigger('click')
+
+    // Wait a beat for construction
+    window.setTimeout(function() {
+      expect(theShimedExpandable.isOpen()).toBe(false);
+      done();
+    }, 10)
+  })
+
+	// Does this case matter?
+  xit('should hide content with open attribute set to false', function() {
+    console.log('Setting open attribute to false..')
+    el[0].setAttribute('open', false)
+		expect(isOpen()).toBe(false, 'Setting open attribute to false but it was still open');
 
 
-		});
+	});
+
+  it('should dispatch toggle event opened', function(done) {
+    var didDispatchEvent = false;
+
+    theShimedExpandable.el.on('toggle', function() {
+      console.log('Heard toggle event.')
+      didDispatchEvent = true;
+      expect(didDispatchEvent).toBe(true);
+      done();
+    });
+
+    theShimedExpandable.el.find('summary').trigger('click');
+  })
 
 });
